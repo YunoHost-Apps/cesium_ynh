@@ -13,5 +13,5 @@ sudo rm -rf /var/www/$app
 # Remove configuration files
 sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
 
-# Resload nginx service
+# Reload nginx service
 sudo service nginx reload

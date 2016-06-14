@@ -11,12 +11,12 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get "$app" domain)
 path=$(ynh_app_setting_get "$app" path)
 is_public=$(ynh_app_setting_get "$app" is_public)
-version="0.1.16"
+version="0.1.18"
 
 # Remove trailing "/" for next commands
 path=${path%/}
 
-# Copy source files
+# Retreive sources and install them
 src_path=/var/www/$app
 sudo rm -rf $src_path
 sudo mkdir -p $src_path
