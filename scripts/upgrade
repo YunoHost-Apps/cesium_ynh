@@ -4,7 +4,7 @@
 set -eu
 
 # Source YunoHost helpers
-. /usr/share/yunohost/helpers
+source /usr/share/yunohost/helpers
 
 # Retrieve app settings
 app=$YNH_APP_INSTANCE_NAME
