@@ -8,7 +8,6 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$YNH_APP_ARG_DOMAIN
 path=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
-version="0.1.18"
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
@@ -23,6 +22,7 @@ sudo yunohost app checkurl "${domain}${path}" -a "$app" \
 # Retrieve sources and install them
 src_path=/var/www/$app
 sudo mkdir -p $src_path
+version=$(cat ../conf/upstream_version)
 wget -nc --quiet https://github.com/duniter/cesium/releases/download/$version/cesium-web-$version.zip -P /tmp
 sudo unzip -q /tmp/cesium-web-$version.zip -d $src_path
 sudo chown -R www-data: $src_path
