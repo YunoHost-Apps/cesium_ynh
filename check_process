@@ -1,0 +1,22 @@
+## Test complet
+	auto_remove=1
+	# Manifest
+		domain="domain.tld"	(DOMAIN)
+		path="/cesium"	(PATH)
+		is_public=1	(PUBLIC|public=Yes|private=No)
+	# Checks
+		setup_sub_dir=1
+		setup_root=1
+		setup_nourl=0
+		setup_private=1
+		setup_public=1
+		upgrade=1
+		backup_restore=1
+		multi_instance=0
+		wrong_user=0
+		wrong_path=1
+		incorrect_path=1
+		corrupt_source=0
+		fail_download_source=1
+		port_already_use=0
+		final_path_already_use=1
