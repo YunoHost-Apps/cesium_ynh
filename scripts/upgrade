@@ -19,9 +19,9 @@ path=${path%/}
 src_path=/var/www/$app
 sudo rm -rf $src_path
 sudo mkdir -p $src_path
-version=$(cat ../conf/upstream_version)
-wget -nc --quiet https://github.com/duniter/cesium/releases/download/$version/cesium-web-$version.zip -P /tmp
-sudo unzip -q /tmp/cesium-web-$version.zip -d $src_path
+url=$(curl -s https://api.github.com/repos/duniter/cesium/releases | grep "browser_" | grep "zip" | cut -d\" -f4 | head -1)
+wget -nc --quiet $url -P /tmp
+sudo unzip -q /tmp/cesium-web-*.zip -d $src_path
 sudo chown -R www-data: $src_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
