@@ -4,7 +4,7 @@
     "packaging_format": 1,
     "description": {
         "en": "Duniter client to manage wallets, certifications in a libre money.",
-        "fr": "Client Duniter pour gérer ses portes-monnaie, les certification au sein d’une monnaie libre."
+        "fr": "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre."
     },
     "url": "https://github.com/duniter/cesium",
     "license": "free",
