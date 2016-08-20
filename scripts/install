@@ -22,7 +22,7 @@ sudo yunohost app checkurl "${domain}${path}" -a "$app" \
 # Retrieve sources and install them
 src_path=/var/www/$app
 sudo mkdir -p $src_path
-url=$(curl -s https://api.github.com/repos/duniter/cesium/releases | grep "browser_" | grep "zip" | cut -d\" -f4 | head -1)
+url=$(curl -s https://api.github.com/repos/duniter/cesium/releases | grep "browser_" | grep "web" | head -1 | cut -d\" -f4)
 wget -nc --quiet $url -P /tmp
 sudo unzip -q /tmp/cesium-web-*.zip -d $src_path
 sudo rm -f /tmp/cesium-web-*.zip
