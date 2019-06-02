@@ -8,7 +8,7 @@
     },
     "version": "1.3.11~ynh1",
     "url": "https://github.com/duniter/cesium",
-    "license": "free",
+    "license": "GNU AGPL-3.0",
     "maintainer": {
         "name": "Moul",
         "email": "moul@moul.re",
