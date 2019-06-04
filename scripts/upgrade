@@ -32,7 +32,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir=/tmp
+	ynh_setup_source --dest_dir=$src_path
 fi
 
 sudo unzip -q /tmp/cesium-*-web.zip -d $src_path
