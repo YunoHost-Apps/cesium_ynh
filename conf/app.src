@@ -1,0 +1,6 @@
+SOURCE_URL=https://github.com/duniter/cesium/releases/download/v1.3.11/cesium-v1.3.11-web.zip
+SOURCE_SUM=
+SOURCE_SUM_PRG=
+SOURCE_FORMAT=zip
+SOURCE_IN_SUBDIR=false
+SOURCE_FILENAME=
