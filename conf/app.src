@@ -1,5 +1,5 @@
 SOURCE_URL=https://github.com/duniter/cesium/releases/download/v1.3.11/cesium-v1.3.11-web.zip
-SOURCE_SUM=
+SOURCE_SUM=fcac385f959178fc4ef8ac323b482c7d618bc48f67d6cc189229f91629b144be
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=false
