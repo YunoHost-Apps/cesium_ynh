@@ -7,7 +7,7 @@ CHECKSUM=$(sudo sha256sum ../tmp/cesium-*-web.zip | head -c 64)
 sed -i "s/SOURCE_SUM=.*/SOURCE_SUM=${CHECKSUM}/" ../conf/app.src
 
 PACKAGE_VERSION=$(curl -s https://api.github.com/repos/duniter/cesium/releases/latest | grep "tag_name" | head -1 | cut -d\" -f4)
-sed -i "s/SOURCE_URL=.*/SOURCE_URL="https://github.com/duniter/cesium/releases/download/"${PACKAGE_VERSION}"/cesium-"${PACKAGE_VERSION}"-web.zip"/" ../conf/app.src
+sed -i "s/SOURCE_URL=.*/SOURCE_URL="https://github.com/duniter/cesium/releases/download/${PACKAGE_VERSION}/cesium-${PACKAGE_VERSION}-web.zip"/" ../conf/app.src
 sed -i "s/"\*\*Shipped version:\*\* ".*/"\*\*Shipped version:\*\* ${PACKAGE_VERSION}"/" ../README.md
 sed -i "s/"    \"version\": \"v".*/"    \"version\": \"v${PACKAGE_VERSION}\~ynh1\","/" ../manifest.json
 
