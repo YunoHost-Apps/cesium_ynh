@@ -6,8 +6,9 @@
         "en": "Duniter client to manage wallets, certifications in a libre money.",
         "fr": "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre."
     },
+    "version": "v1.3.11~ynh1",
     "url": "https://github.com/duniter/cesium",
-    "license": "free",
+    "license": "AGPL-3.0-or-later",
     "maintainer": {
         "name": "Moul",
         "email": "moul@moul.re",
