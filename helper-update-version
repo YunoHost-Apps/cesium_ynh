@@ -2,15 +2,18 @@
  # Retrieve sources, get sha256sum, parse package version and update these strings in manifest, README and /conf/app.src
  
 url=$(curl -s https://api.github.com/repos/duniter/cesium/releases/latest | grep "browser_" | grep "web" | head -1 | cut -d\" -f4)
+echo $url
 wget -nc --quiet $url -P ./tmp
 CHECKSUM=$(sha256sum ./tmp/cesium-*-web.zip | head -c 64)
+echo $CHECKSUM
 sed -i "s/SOURCE_SUM=.*/SOURCE_SUM=${CHECKSUM}/" ./conf/app.src
+sed -i "s#SOURCE_URL=.*#SOURCE_URL=$url#" ./conf/app.src
 
-PACKAGE_VERSION=$(curl -s https://api.github.com/repos/duniter/cesium/releases/latest | grep "tag_name" | head -1 | cut -d\" -f4)
-sed -i "s#SOURCE_URL=.*#SOURCE_URL=https://github.com/duniter/cesium/releases/download/${PACKAGE_VERSION}/cesium-${PACKAGE_VERSION}-web.zip#" ./conf/app.src
-sed -i "s#\*\*Shipped version:\*\*.*#\*\*Shipped version:\*\* ${PACKAGE_VERSION}#" ./README.md
-sed -i "s#    \"version\": \".*#    \"version\": \"${PACKAGE_VERSION}\~ynh1\",#" ./manifest.json
+VERSION=$(echo $url | sed "s#https://github.com/duniter/cesium/releases/download/\(.*\)/cesium.*#\1#")
+echo $VERSION
+sed -i "s#\*\*Shipped version:\*\*.*#\*\*Shipped version:\*\* ${VERSION}#" ./README.md
+sed -i "s#    \"version\": \".*#    \"version\": \"${VERSION}\~ynh1\",#" ./manifest.json
 
 sudo rm -f -R ./tmp
 
-git commit README.md manifest.json conf/app.src  -m "$PACKAGE_VERSION"
+git commit README.md manifest.json conf/app.src  -m "$VERSION"
