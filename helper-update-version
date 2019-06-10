@@ -14,6 +14,6 @@ echo $VERSION
 sed -i "s#\*\*Shipped version:\*\*.*#\*\*Shipped version:\*\* ${VERSION}#" ./README.md
 sed -i "s#    \"version\": \".*#    \"version\": \"${VERSION}\~ynh1\",#" ./manifest.json
 
-sudo rm -f -R ./tmp
+rm -f -R ./tmp
 
 git commit README.md manifest.json conf/app.src  -m "$VERSION"
