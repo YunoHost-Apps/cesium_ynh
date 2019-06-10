@@ -11,7 +11,7 @@ sed -i "s/SOURCE_URL=.*/SOURCE_URL="https://github.com/duniter/cesium/releases/d
 sed -i "s/"\*\*Shipped version:\*\* ".*/"\*\*Shipped version:\*\* ${PACKAGE_VERSION}"/" ../README.md
 sed -i "s/"    \"version\": \"v".*/"    \"version\": \"v${PACKAGE_VERSION}\~ynh1\","/" ../manifest.json
 
-sudo rm -f /tmp/cesium-*-web.zip
+sudo rm -f ../tmp/cesium-*-web.zip
 
 git push
 git request-pull
