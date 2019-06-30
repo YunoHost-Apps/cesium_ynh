@@ -25,17 +25,17 @@ path=${path%/}
 
 # Retreive sources and install them
 src_path=/var/www/$app
-sudo rm -rf $src_path
-sudo mkdir -p $src_path
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
+	sudo rm -rf $src_path
+	sudo mkdir -p $src_path
 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir=$src_path
+	sudo chown -R www-data: $src_path
 fi
 
-sudo chown -R www-data: $src_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
 nginx_conf=../conf/nginx.conf
