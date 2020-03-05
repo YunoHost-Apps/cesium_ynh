@@ -27,13 +27,13 @@ path=${path%/}
 src_path=/var/www/$app
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	sudo rm -rf $src_path
-	sudo mkdir -p $src_path
+	rm -rf $src_path
+	mkdir -p $src_path
 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir=$src_path
-	sudo chown -R www-data: $src_path
+	chown -R www-data: $src_path
 fi
 
 
@@ -41,7 +41,7 @@ fi
 nginx_conf=../conf/nginx.conf
 sed -i "s@YNH_WWW_PATH@$path@g" $nginx_conf
 sed -i "s@YNH_WWW_ALIAS@$src_path/@g" $nginx_conf
-sudo cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
+cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
 # If app is public, add url to SSOWat conf as skipped_uris
 if [[ $is_public -eq 1 ]]; then
@@ -49,4 +49,4 @@ if [[ $is_public -eq 1 ]]; then
 fi
 
 # Reload nginx service
-sudo service nginx reload
+service nginx reload

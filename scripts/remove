@@ -8,10 +8,10 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get "$app" domain)
 
 # Remove sources
-sudo rm -rf /var/www/$app
+rm -rf /var/www/$app
 
 # Remove configuration files
-sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
+rm -f /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Reload nginx service
-sudo service nginx reload
+service nginx reload
