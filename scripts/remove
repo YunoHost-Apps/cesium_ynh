@@ -8,7 +8,7 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get "$app" domain)
 
 # Remove sources
-rm -rf /var/www/$app
+ynh_secure_remove /var/www/$app
 
 # Remove configuration files
 rm -f /etc/nginx/conf.d/$domain.d/$app.conf

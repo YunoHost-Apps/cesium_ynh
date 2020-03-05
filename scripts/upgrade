@@ -27,7 +27,7 @@ path=${path%/}
 src_path=/var/www/$app
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	rm -rf $src_path
+	ynh_secure_remove $src_path
 	mkdir -p $src_path
 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
