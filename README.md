@@ -1,6 +1,6 @@
 # Cesium package for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium)  
+[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
 [![Install Custom Webapp with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=cesium)
 
 
