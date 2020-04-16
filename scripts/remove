@@ -14,4 +14,4 @@ ynh_secure_remove /var/www/$app
 rm -f /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Reload nginx service
-service nginx reload
+systemctl reload nginx

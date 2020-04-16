@@ -32,4 +32,4 @@ chown -R www-data: "$src_path"
 cp -a ./nginx.conf "/etc/nginx/conf.d/${domain}.d/${app}.conf"
 
 # Restart webserver
-service nginx reload
+systemctl reload nginx
