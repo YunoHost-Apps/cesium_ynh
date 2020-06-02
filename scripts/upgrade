@@ -46,6 +46,8 @@ cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 # If app is public, add url to SSOWat conf as skipped_uris
 if [[ $is_public -eq 1 ]]; then
   ynh_app_setting_set "$app" unprotected_uris "/"
+#  activate read-only
+ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$src_path/config.js"
 fi
 
 # Reload nginx service

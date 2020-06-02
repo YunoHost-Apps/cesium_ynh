@@ -23,7 +23,7 @@ yunohost app checkurl "${domain}${path}" -a "$app" \
 src_path=/var/www/$app
 mkdir -p $src_path
 	# Download, check integrity, uncompress and patch the source from app.src
-    ynh_script_progression --message="Setting up source files..." --time --weight=1
+  ynh_script_progression --message="Setting up source files..." --time --weight=1
 	ynh_setup_source --dest_dir=$src_path
 chown -R www-data: $src_path
 
@@ -33,10 +33,14 @@ sed -i "s@YNH_WWW_PATH@$path@g" $nginx_conf
 sed -i "s@YNH_WWW_ALIAS@$src_path/@g" $nginx_conf
 cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
 
+
+
 # If app is public, add url to SSOWat conf as skipped_uris
 if [[ $is_public -eq 1 ]]; then
   # unprotected_uris allows SSO credentials to be passed anyway.
   ynh_app_setting_set "$app" unprotected_uris "/"
+# activate read-only
+ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$src_path/config.js"
 fi
 
 # Reload nginx service
