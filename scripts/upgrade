@@ -120,12 +120,6 @@ ynh_script_progression --message="Upgrading nginx web server configuration..." -
 
 ynh_add_nginx_config
 
-# Modify Nginx configuration file and copy it to Nginx conf directory
-ynh_replace_string --match_string="YNH_WWW_PATH" --replace_string="$path_url/" --target_file="$final_path/nginx_conf"
-ynh_replace_string --match_string='YNH_WWW_ALIAS' --replace_string='$final_path/' --target_file="$final_path/nginx_conf"
-### `ynh_add_nginx_config` will use the file conf/nginx.conf
-# Create a dedicated nginx config
-
 if [ "$path_url" != "/" ]
 then
   ynh_replace_string "^#sub_path_only" "" "/etc/nginx/conf.d/$domain.d/$app.conf"
