@@ -79,8 +79,8 @@ ynh_app_setting_delete --app=$app --key=skipped_uris
 ynh_script_progression --message="Configuring nginx web server..." --time --weight=1
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
-ynh_replace_string --match_string="YNH_WWW_PATH" --replace_string="$path_url" --target_file="$final_path/nginx_conf"
-ynh_replace_string --match_string='YNH_WWW_ALIAS' --replace_string='$final_path' --target_file="$final_path/nginx_conf"
+ynh_replace_string --match_string="YNH_WWW_PATH" --replace_string="$path_url" --target_file="$final_path/nginx.conf"
+ynh_replace_string --match_string='YNH_WWW_ALIAS' --replace_string='$final_path' --target_file="$final_path/nginx.conf"
 ### `ynh_add_nginx_config` will use the file conf/nginx.conf
 # Create a dedicated nginx config
 ynh_add_nginx_config
