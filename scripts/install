@@ -82,9 +82,6 @@ ynh_script_progression --message="Configuring nginx web server..." --time --weig
 # Create a dedicated nginx config
 ynh_add_nginx_config
 
-# Modify Nginx configuration file and copy it to Nginx conf directory
-ynh_replace_string --match_string="YNH_WWW_PATH" --replace_string="$path_url" --target_file="$final_path/nginx.conf"
-ynh_replace_string --match_string='YNH_WWW_ALIAS' --replace_string='$final_path' --target_file="$final_path/nginx.conf"
 
 if [ "$path_url" != "/" ]
 then
