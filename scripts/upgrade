@@ -8,12 +8,6 @@
 
 source /usr/share/yunohost/helpers
 
-
-# Exit on command errors and treat unset variables as an error
-set -eu
-
-# Source YunoHost helpers
-source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
@@ -24,7 +18,6 @@ app=$YNH_APP_INSTANCE_NAME
 # Retrieve app settings
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
-admin=$(ynh_app_setting_get --app=$app --key=admin)
 is_public=$(ynh_app_setting_get --app=$app --key=is_public)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
@@ -100,18 +93,6 @@ then
   ynh_setup_source --dest_dir="$final_path"
 fi
 
-# # Retreive sources and install them
-# src_path=/var/www/$app
-# if [ "$upgrade_type" == "UPGRADE_APP" ]
-# then
-# 	ynh_secure_remove $src_path
-# 	mkdir -p $src_path
-# 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
-
-# 	# Download, check integrity, uncompress and patch the source from app.src
-# 	ynh_setup_source --dest_dir=$src_path
-# 	chown -R www-data: $src_path
-# fi
 
 #=================================================
 # NGINX CONFIGURATION
@@ -130,7 +111,7 @@ fi
 #=================================================
 
 # Set permissions on app files
-chown -R root: $final_path
+chown -R www-data: $final_path
 
 #=================================================
 # SETUP SSOWAT
