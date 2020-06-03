@@ -1,7 +1,7 @@
 #!/bin/bash
 # Retrieve sources, get sha256sum, parse package version and update these strings in manifest, README and /conf/app.src
 
-# URL=$(curl -s https://api.github.com/repos/duniter/cesium/releases/ | grep "browser_" | grep "web" | head -1 | cut -d\" -f4)
+# URL=$(curl -s https://api.github.com/repos/duniter/cesium/releases/latest | grep "browser_" | grep "web" | head -1 | cut -d\" -f4)
 # wget -nc --quiet $URL -P ./tmp
 # CHECKSUM=$(sha256sum ./tmp/cesium-*-web.zip | head -c 64)
 # sed -i "s/SOURCE_SUM=.*/SOURCE_SUM=${CHECKSUM}/" ./conf/app.src

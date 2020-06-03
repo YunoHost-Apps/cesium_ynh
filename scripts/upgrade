@@ -1,16 +1,37 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source /usr/share/yunohost/helpers
+
+
 # Exit on command errors and treat unset variables as an error
 set -eu
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
+#=================================================
+# LOAD SETTINGS
+#=================================================
+ynh_script_progression --message="Loading installation settings..." --time --weight=1
+
+app=$YNH_APP_INSTANCE_NAME
 
 # Retrieve app settings
-app=$YNH_APP_INSTANCE_NAME
-domain=$(ynh_app_setting_get "$app" domain)
-path=$(ynh_app_setting_get "$app" path)
-is_public=$(ynh_app_setting_get "$app" is_public)
+domain=$(ynh_app_setting_get --app=$app --key=domain)
+path_url=$(ynh_app_setting_get --app=$app --key=path)
+admin=$(ynh_app_setting_get --app=$app --key=admin)
+is_public=$(ynh_app_setting_get --app=$app --key=is_public)
+final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+
+
+#=================================================
+# CHECK VERSION
+#=================================================
 
 ### This helper will compare the version of the currently installed app and the version of the upstream package.
 ### $upgrade_type can have 2 different values
@@ -20,35 +41,125 @@ is_public=$(ynh_app_setting_get "$app" is_public)
 ### UPGRADE_APP should be used to upgrade the core app only if there's an upgrade to do.
 upgrade_type=$(ynh_check_app_version_changed)
 
-# Remove trailing "/" for next commands
-path=${path%/}
 
-# Retreive sources and install them
-src_path=/var/www/$app
+#=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
+
+# Fix is_public as a boolean value
+if [ "$is_public" = "Yes" ]; then
+  ynh_app_setting_set --app=$app --key=is_public --value=1
+  is_public=1
+elif [ "$is_public" = "No" ]; then
+  ynh_app_setting_set --app=$app --key=is_public --value=0
+  is_public=0
+fi
+
+# If final_path doesn't exist, create it
+if [ -z "$final_path" ]; then
+  final_path=/var/www/$app
+  ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+fi
+
+#=================================================
+# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
+#=================================================
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --time --weight=1
+
+# Backup the current version of the app
+ynh_backup_before_upgrade
+ynh_clean_setup () {
+  # restore it if the upgrade fails
+  ynh_restore_upgradebackup
+}
+# Exit if an error occurs during the execution of the script
+ynh_abort_if_errors
+
+#=================================================
+# CHECK THE PATH
+#=================================================
+
+# Normalize the URL path syntax
+# N.B. : this is for app installations before YunoHost 2.7
+# where this value might be something like /foo/ or foo/
+# instead of /foo ....
+# If nobody installed your app before 2.7, then you may
+# safely remove this line
+path_url=$(ynh_normalize_url_path --path_url=$path_url)
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-	ynh_secure_remove $src_path
-	mkdir -p $src_path
-	ynh_script_progression --message="Upgrading source files..." --time --weight=1
+  ynh_script_progression --message="Upgrading source files..." --time --weight=1
 
-	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir=$src_path
-	chown -R www-data: $src_path
+  # Download, check integrity, uncompress and patch the source from app.src
+  ynh_setup_source --dest_dir="$final_path"
 fi
 
+# # Retreive sources and install them
+# src_path=/var/www/$app
+# if [ "$upgrade_type" == "UPGRADE_APP" ]
+# then
+# 	ynh_secure_remove $src_path
+# 	mkdir -p $src_path
+# 	ynh_script_progression --message="Upgrading source files..." --time --weight=1
+
+# 	# Download, check integrity, uncompress and patch the source from app.src
+# 	ynh_setup_source --dest_dir=$src_path
+# 	chown -R www-data: $src_path
+# fi
+
+#=================================================
+# NGINX CONFIGURATION
+#=================================================
+ynh_script_progression --message="Upgrading nginx web server configuration..." --time --weight=1
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
-nginx_conf=../conf/nginx.conf
-sed -i "s@YNH_WWW_PATH@$path@g" $nginx_conf
-sed -i "s@YNH_WWW_ALIAS@$src_path/@g" $nginx_conf
-cp $nginx_conf /etc/nginx/conf.d/$domain.d/$app.conf
+ynh_replace_string --match_string="YNH_WWW_PATH" --replace_string="$path_url/" --target_file="$final_path/nginx_conf"
+ynh_replace_string --match_string='YNH_WWW_ALIAS' --replace_string='$final_path/' --target_file="$final_path/nginx_conf"
+### `ynh_add_nginx_config` will use the file conf/nginx.conf
+# Create a dedicated nginx config
+ynh_add_nginx_config
 
-# If app is public, add url to SSOWat conf as skipped_uris
-if [[ $is_public -eq 1 ]]; then
-  ynh_app_setting_set "$app" unprotected_uris "/"
-#  activate read-only
-  ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$src_path/config.js"
+if [ "$path_url" != "/" ]
+then
+  ynh_replace_string "^#sub_path_only" "" "/etc/nginx/conf.d/$domain.d/$app.conf"
 fi
 
-# Reload nginx service
-systemctl reload nginx
+#=================================================
+# SECURE FILES AND DIRECTORIES
+#=================================================
+
+# Set permissions on app files
+chown -R root: $final_path
+
+#=================================================
+# SETUP SSOWAT
+#=================================================
+ynh_script_progression --message="Configuring SSOwat..." --time --weight=1
+
+
+# If app is public, add url to SSOWat conf as skipped_uris and read-only mode
+if [[ $is_public -eq 1 ]]; then
+  # unprotected_uris allows SSO credentials to be passed anyway.
+  ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
+# activate read-only
+  ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$final_path/config.js"
+fi
+
+#=================================================
+# RELOAD NGINX
+#=================================================
+ynh_script_progression --message="Reloading nginx web server..." --time --weight=1
+
+ynh_systemd_action --service_name=nginx --action=reload
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression --message="Upgrade of $app completed" --time --last
