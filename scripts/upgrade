@@ -38,7 +38,7 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
+ynh_script_progression --message="Ensuring downward compatibility..."
 
 # Fix is_public as a boolean value
 if [ "$is_public" = "Yes" ]; then
@@ -58,7 +58,7 @@ fi
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --time --weight=1
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
 
 # Backup the current version of the app
 ynh_backup_before_upgrade
@@ -87,7 +87,7 @@ path_url=$(ynh_normalize_url_path --path_url=$path_url)
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
-  ynh_script_progression --message="Upgrading source files..." --time --weight=1
+  ynh_script_progression --message="Upgrading source files..."
 
   # Download, check integrity, uncompress and patch the source from app.src
   ynh_setup_source --dest_dir="$final_path"
@@ -97,7 +97,7 @@ fi
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading nginx web server configuration..." --time --weight=1
+ynh_script_progression --message="Upgrading nginx web server configuration..."
 
 ynh_add_nginx_config
 
@@ -116,14 +116,13 @@ chown -R www-data: $final_path
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring SSOwat..." --time --weight=1
-
+ynh_script_progression --message="Configuring permissions..."
 
 # If app is public, add url to SSOWat conf as skipped_uris and read-only mode
 if [[ $is_public -eq 1 ]]; then
   # unprotected_uris allows SSO credentials to be passed anyway.
-  ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
-# activate read-only
+  ynh_permission_update --permission "main" --add "visitors"
+  # activate read-only
   ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$final_path/config.js"
 fi
 
