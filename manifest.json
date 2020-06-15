@@ -50,7 +50,7 @@
                     "fr": "Est-ce une application publique ?"
                 },
                 "help": {
-                    "en": "If it is a public application, there will not have authentification"
+                    "en": "If it is a public application, there will not have authentification",
                     "fr": "Si l'application est publique, il n'y aura pas d'authentification"
                 },
                 "default": false
