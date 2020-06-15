@@ -6,6 +6,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
+source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -32,7 +33,7 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 #=================================================
 # CHECK WHICH PARTS SHOULD BE CHANGED
 #=================================================
-ynh_print_info --message="checking parts should be changed..."
+ynh_script_progression --message="checking parts should be changed..."
 
 change_domain=0
 if [ "$old_domain" != "$new_domain" ]
@@ -87,4 +88,3 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 
 ynh_script_progression --message="Change of URL completed for $app"
-
