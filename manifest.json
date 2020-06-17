@@ -34,7 +34,7 @@
             },
             {
                 "name": "path",
-		"type": "path",
+		        "type": "path",
                 "ask": {
                     "en": "Choose a path for Cesium",
                     "fr": "Choisissez un chemin pour Césium"
