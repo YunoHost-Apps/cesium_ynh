@@ -14,6 +14,12 @@ It allows you to manage your wallet, certify your friends, and more !
 
 **Shipped version:** v1.6.7
 
+## Public or private status
+
+Following the [decision of Cesium developers (in French)](https://forum.monnaie-libre.fr/t/cesium-evolue-aie-ca-va-piquer-mais/10015) to improve general safety of the Duniter blockchain by removing login capability on public instances of their app, this app follows the same pattern:
+ - If the app is set to **public** in Yunohost: the version installed will **only allow the reading** of the blockchain and network, but no transaction or operation will be possible.
+ - If the app is set to **private** in Yunohost: the version installed will allow one to login with Duniter credentials and make operations on the blockchain.
+
 ## Links
 
 - [YunoHost website](https://yunohost.org)
