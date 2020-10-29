@@ -15,7 +15,7 @@
         "url": "https://moul.re"
     },
     "requirements": {
-        "yunohost": ">> 2.4.0"
+        "yunohost": ">> 3.7.0"
     },
     "multi_instance": false,
     "services": [
@@ -34,7 +34,7 @@
             },
             {
                 "name": "path",
-		"type": "path",
+		        "type": "path",
                 "ask": {
                     "en": "Choose a path for Cesium",
                     "fr": "Choisissez un chemin pour Césium"
@@ -48,6 +48,10 @@
                 "ask": {
                     "en": "Is it a public application?",
                     "fr": "Est-ce une application publique ?"
+                },
+                "help": {
+                    "en": "If it is a public application, there will not have authentification",
+                    "fr": "Si l'application est publique, il n'y aura pas d'authentification"
                 },
                 "default": false
             }
