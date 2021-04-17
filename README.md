@@ -1,17 +1,16 @@
 # Cesium package for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
-[![Install Cesium with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=cesium)
-
+[![Install Cesium with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=cesium)
 
 > *This package allows you to install Cesium quickly and simply on a YunoHost server.  
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
 [Cesium](https://cesium.app) is an [Unhosted webapp](https://unhosted.org) client for any [Duniter](https://duniter.org) crypto-currency.
-It allows you to manage your wallet, certify your friends, and more !
+It allows you to manage your wallet, certify your friends, and more!
 
-**Shipped version:** v1.6.7
+**Shipped version:** 1.6.7
 
 ## YunoHost specific features
 
@@ -29,8 +28,7 @@ It allows you to manage your wallet, certify your friends, and more !
 
 ---
 
-Developer info
-----------------
+## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/cesium_ynh/tree/testing).
 

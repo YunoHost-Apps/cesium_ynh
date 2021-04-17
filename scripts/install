@@ -61,12 +61,10 @@ ynh_setup_source --dest_dir="$final_path"
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring nginx web server..."
+ynh_script_progression --message="Configuring NGINX web server..."
 
-### `ynh_add_nginx_config` will use the file conf/nginx.conf
 # Create a dedicated nginx config
 ynh_add_nginx_config
-
 
 if [ "$path_url" != "/" ]
 then
@@ -86,16 +84,13 @@ chown -R www-data: $final_path
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring SSOwat..."
-
-# Remove the public access
-ynh_app_setting_delete --app=$app --key=skipped_uris
+ynh_script_progression --message="Configuring permissions..."
 
 # If app is public, add url to SSOWat conf as skipped_uris and read-only mode
 if [ $is_public -eq 1 ]
 then
   # unprotected_uris allows SSO credentials to be passed anyway.
-  ynh_permission_update --permission "main" --add "visitors"
+  ynh_permission_update --permission="main" --add="visitors"
   # activate read-only
   ynh_replace_string --match_string='"readonly": false,' --replace_string='"readonly": true,' --target_file="$final_path/config.js"
 fi
@@ -103,7 +98,7 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading nginx web server..."
+ynh_script_progression --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
