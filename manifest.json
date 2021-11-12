@@ -8,6 +8,14 @@
     },
     "version": "v1.6.12~ynh1",
     "url": "https://github.com/duniter/cesium",
+    "upstream": {
+        "license": "AGPL-3.0-or-later",
+        "website": "https://cesium.app",
+        "demo": "https://demo.example.com",
+        "admindoc": "https://yunohost.org/packaging_apps",
+        "userdoc": "https://yunohost.org/apps",
+        "code": "https://github.com/duniter/cesium"
+    },
     "license": "AGPL-3.0-or-later",
     "maintainer": {
         "name": "Moul",
