@@ -3,8 +3,8 @@
     "id": "cesium",
     "packaging_format": 1,
     "description": {
-        "en": "Duniter client to manage wallets, certifications in a libre money.",
-        "fr": "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre."
+        "en": "Duniter client to manage wallets, certifications in a libre money",
+        "fr": "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre"
     },
     "version": "v1.6.12~ynh1",
     "url": "https://github.com/duniter/cesium",
@@ -15,7 +15,7 @@
         "url": "https://moul.re"
     },
     "requirements": {
-        "yunohost": ">> 4.1.7"
+        "yunohost": ">> 4.2.3"
     },
     "multi_instance": false,
     "services": [
@@ -25,8 +25,7 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "path",
