@@ -21,10 +21,14 @@ It allows you to manage your wallet, certify your friends, and more!
 
 **Shipped version:** v1.6.12~ynh1
 
-
+**Demo:** https://demo.example.com
 
 ## Documentation and resources
 
+* Official app website: https://cesium.app
+* Official user documentation: https://yunohost.org/apps
+* Official admin documentation: https://yunohost.org/packaging_apps
+* Upstream app code repository: https://github.com/duniter/cesium
 * YunoHost documentation for this app: https://yunohost.org/app_cesium
 * Report a bug: https://github.com/YunoHost-Apps/cesium_ynh/issues
 
