@@ -15,7 +15,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Version incluse :** v1.6.12~ynh1
+**Version incluse :** 1.6.12~ynh1
 
 **Démo :** https://demo.example.com
 

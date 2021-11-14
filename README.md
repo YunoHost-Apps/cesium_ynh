@@ -19,7 +19,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Shipped version:** v1.6.12~ynh1
+**Shipped version:** 1.6.12~ynh1
 
 **Demo:** https://demo.example.com
 
