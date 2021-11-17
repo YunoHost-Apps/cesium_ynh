@@ -23,7 +23,6 @@ It allows you to manage your wallet, certify your friends, and more!
 
 **Demo:** https://demo.example.com
 
-
 ## Documentation and resources
 
 * Official app website: https://cesium.app
@@ -35,7 +34,7 @@ It allows you to manage your wallet, certify your friends, and more!
 
 ## Developer info
 
-## License
+Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/cesium_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
 ```
