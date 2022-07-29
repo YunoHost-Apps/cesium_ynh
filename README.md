@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Cesium for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![Working status](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
 [![Install Cesium with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=cesium)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -19,28 +19,24 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Shipped version:** 1.6.12~ynh1
-
-**Demo:** https://demo.example.com
-
+**Shipped version:** 1.6.12~ynh2
 ## Documentation and resources
 
-* Official app website: https://cesium.app
-* Official user documentation: https://yunohost.org/apps
-* Official admin documentation: https://yunohost.org/packaging_apps
-* Upstream app code repository: https://github.com/duniter/cesium
-* YunoHost documentation for this app: https://yunohost.org/app_cesium
-* Report a bug: https://github.com/YunoHost-Apps/cesium_ynh/issues
+* Official app website: <https://cesium.app>
+* Upstream app code repository: <https://github.com/duniter/cesium>
+* YunoHost documentation for this app: <https://yunohost.org/app_cesium>
+* Report a bug: <https://github.com/YunoHost-Apps/cesium_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/cesium_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/cesium_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade cesium -u https://github.com/YunoHost-Apps/cesium_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
