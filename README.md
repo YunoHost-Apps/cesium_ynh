@@ -20,6 +20,7 @@ It allows you to manage your wallet, certify your friends, and more!
 
 
 **Shipped version:** 1.6.12~ynh2
+
 ## Documentation and resources
 
 * Official app website: <https://cesium.app>
