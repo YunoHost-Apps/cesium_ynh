@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Cesium for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![Working status](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![Working status](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)
+
 [![Install Cesium with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=cesium)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -20,7 +21,6 @@ It allows you to manage your wallet, certify your friends, and more!
 
 
 **Shipped version:** 1.6.12~ynh2
-
 ## Documentation and resources
 
 * Official app website: <https://cesium.app>
