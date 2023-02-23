@@ -5,26 +5,26 @@ It shall NOT be edited by hand.
 
 # Cesium pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)
+
 [![Installer Cesium avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=cesium)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Cesium rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Cesium rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 [Cesium](https://cesium.app) is an [Unhosted webapp](https://unhosted.org) client for any [Duniter](https://duniter.org) crypto-currency.
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Version incluse :** 1.6.12~ynh2
-
+**Version incluse :** 1.6.12~ynh2
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://cesium.app>
-* Dépôt de code officiel de l'app : <https://github.com/duniter/cesium>
+* Site officiel de l’app : <https://cesium.app>
+* Dépôt de code officiel de l’app : <https://github.com/duniter/cesium>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_cesium>
 * Signaler un bug : <https://github.com/YunoHost-Apps/cesium_ynh/issues>
 
@@ -40,4 +40,4 @@ ou
 sudo yunohost app upgrade cesium -u https://github.com/YunoHost-Apps/cesium_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
