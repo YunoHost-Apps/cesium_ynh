@@ -20,7 +20,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Shipped version:** 1.7.6~ynh1
+**Shipped version:** 1.7.9~ynh1
 ## Documentation and resources
 
 * Official app website: <https://cesium.app>

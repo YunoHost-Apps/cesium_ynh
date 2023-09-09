@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/duniter/cesium/releases/download/v1.7.6/cesium-v1.7.6-web.zip
-SOURCE_SUM=70abba1c2a7c33953996d3eeb99d71ac5c60cac6b01fb68fcbcb9f0fddccfce7
+SOURCE_URL=https://github.com/duniter/cesium/releases/download/v1.7.9/cesium-v1.7.9-web.zip
+SOURCE_SUM=f11726c0c61a674c313bda985801128a9b10b9f53e0815830a81b4a1832fd0c5
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=zip
 SOURCE_IN_SUBDIR=false
