@@ -25,7 +25,7 @@ It allows you to manage your wallet, certify your friends, and more!
 
 * Site officiel de l’app : <https://cesium.app>
 * Dépôt de code officiel de l’app : <https://github.com/duniter/cesium>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_cesium>
+* YunoHost Store: <https://apps.yunohost.org/app/cesium>
 * Signaler un bug : <https://github.com/YunoHost-Apps/cesium_ynh/issues>
 
 ## Informations pour les développeurs
