@@ -7,7 +7,7 @@ name = "Cesium"
 description.en = "Duniter client to manage wallets, certifications in a libre money"
 description.fr = "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre"
 
-version = "1.7.10~ynh1"
+version = "1.7.10~ynh2"
 
 maintainers = ["Moul"]
 
