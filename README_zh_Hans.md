@@ -20,7 +20,7 @@
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**分发版本：** 1.7.10~ynh2
+**分发版本：** 1.7.13~ynh1
 ## 文档与资源
 
 - 官方应用网站： <https://cesium.app>
