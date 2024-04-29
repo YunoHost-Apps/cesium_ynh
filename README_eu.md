@@ -20,7 +20,7 @@ EZ editatu eskuz.
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Paketatutako bertsioa:** 1.7.13~ynh1
+**Paketatutako bertsioa:** 1.7.13~ynh2
 ## Dokumentazioa eta baliabideak
 
 - Aplikazioaren webgune ofiziala: <https://cesium.app>

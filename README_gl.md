@@ -20,7 +20,7 @@ NON debe editarse manualmente.
 It allows you to manage your wallet, certify your friends, and more!
 
 
-**Versión proporcionada:** 1.7.13~ynh1
+**Versión proporcionada:** 1.7.13~ynh2
 ## Documentación e recursos
 
 - Web oficial da app: <https://cesium.app>
