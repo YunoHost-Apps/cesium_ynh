@@ -38,7 +38,7 @@ ram.runtime = "50M"
     help.en = "If it is a public application, there will not have authentification"
     help.fr = "Si l'application est publique, il n'y aura pas d'authentification"
     type = "group"
-    default = false
+    default = "visitors"
 
 [resources]
     [resources.sources.main]
