@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 Cesium
+# YunoHost 上的 Cesium
 
 [![集成程度](https://dash.yunohost.org/integration/cesium.svg)](https://dash.yunohost.org/appci/app/cesium) ![工作状态](https://ci-apps.yunohost.org/ci/badges/cesium.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/cesium.maintain.svg)
 
