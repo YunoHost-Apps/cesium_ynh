@@ -7,7 +7,7 @@ name = "Cesium"
 description.en = "Duniter client to manage wallets, certifications in a libre money"
 description.fr = "Client Duniter pour gérer ses portes-monnaie, les certifications au sein d’une monnaie libre"
 
-version = "1.7.13~ynh2"
+version = "1.7.15~ynh1"
 
 maintainers = ["Moul"]
 
@@ -42,8 +42,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/duniter/cesium/releases/download/v1.7.13/cesium-v1.7.13-web.zip"
-    sha256 = "12df5710345eb84883aa8430199d8ac184baf9776902503526da50d3e68ddb6b"
+    url = "https://github.com/duniter/cesium/releases/download/v1.7.15/cesium-v1.7.15-web.zip"
+    sha256 = "4c92d2bcdf89ac31d36677cd46f97a94168af594aba53f31691bb4fa5014bd78"
     in_subdir = false
 
     autoupdate.strategy = "latest_github_release"
